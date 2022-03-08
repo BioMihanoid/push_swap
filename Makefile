@@ -4,7 +4,19 @@ FLAGS = -Wall -Wextra -Werror -MD
 
 CC = gcc
 
-SRC = *.c
+SRC = 	big_sort.c		\
+		mini_sort.c		\
+		operation1.c	\
+		operation2.c	\
+		operation3.c	\
+		push_swap.c		\
+		split.c			\
+		utils1.c		\
+		utils2.c		\
+		utils3.c		\
+		utils4.c		\
+		utils5.c		\
+		validation.c	\
 
 HEADER = push_swap.h
 

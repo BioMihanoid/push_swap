@@ -12,16 +12,6 @@
 
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
 static size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
@@ -38,7 +28,7 @@ static size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (ft_strlen(src));
 }
 
-static size_t	count_words(char const *str, char c)
+static size_t	count_words(char const *str)
 {
 	int	count;
 	int	f;
@@ -47,25 +37,25 @@ static size_t	count_words(char const *str, char c)
 	f = 0;
 	while (*str)
 	{
-		if (*str != c && f == 0)
+		if (!ft_isspace(*str) && f == 0)
 		{
 			f = 1;
 			count++;
 		}
-		else if (*str == c)
+		else if (ft_isspace(*str))
 			f = 0;
 		str++;
 	}
 	return (count);
 }
 
-static char	*create_str(char const *s, char c)
+static char	*create_str(char const *s)
 {
 	int		i;
 	char	*str;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (s[i] && !ft_isspace(s[i]))
 		i++;
 	str = (char *)malloc(i + 1);
 	if (!str)
@@ -81,24 +71,24 @@ static void	clear(char **arr_str, int i)
 	free(arr_str);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s)
 {
-	size_t	i;
-	size_t	len;
+	int		i;
+	int		len;
 	char	**arr_str;
 
 	if (!s)
 		return (NULL);
-	len = count_words(s, c);
+	len = count_words(s);
 	arr_str = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!arr_str)
 		return (NULL);
 	i = -1;
 	while (++i < len)
 	{
-		while (s[0] == c)
+		while (ft_isspace(s[0]))
 			s++;
-		arr_str[i] = create_str(s, c);
+		arr_str[i] = create_str(s);
 		if (!arr_str)
 		{
 			clear(arr_str, i);

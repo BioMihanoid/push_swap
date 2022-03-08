@@ -27,7 +27,7 @@ void	ra(t_stack **stack_a, int info)
 	t1->next = t2;
 	t2->next = NULL;
 	if (info)
-		printf("ra\n");
+		write (1, "ra\n", 3);
 }
 
 void	rb(t_stack **stack_b, int info)
@@ -45,12 +45,12 @@ void	rb(t_stack **stack_b, int info)
 	t1->next = t2;
 	t1->next->next = NULL;
 	if (info)
-		printf("rb\n");
+		write (1, "rb\n", 3);
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	ra(stack_a, 0);
 	rb(stack_b, 0);
-	printf("rr\n");
+	write (1, "rr\n", 3);
 }

@@ -27,7 +27,7 @@ void	rra(t_stack **stack_a, int info)
 	*stack_a = t;
 	t2->next = NULL;
 	if (info)
-		printf ("rra\n");
+		write (1, "rra\n", 4);
 }
 
 void	rrb(t_stack **stack_b, int info)
@@ -45,14 +45,14 @@ void	rrb(t_stack **stack_b, int info)
 	*stack_b = t;
 	t2->next = NULL;
 	if (info)
-		printf ("rrb\n");
+		write (1, "rrb\n", 4);
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	ra(stack_a, 0);
 	rb(stack_b, 0);
-	printf ("rrr\n");
+	write (1, "rrr\n", 4);
 }
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
@@ -65,7 +65,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	*stack_b = t->next;
 	t->next = *stack_a;
 	*stack_a = t;
-	printf ("pa\n");
+	write (1, "pa\n", 3);
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
@@ -78,5 +78,5 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = t->next;
 	t->next = *stack_b;
 	*stack_b = t;
-	printf("pb\n");
+	write (1, "pb\n", 3);
 }

@@ -12,17 +12,17 @@
 
 #include "push_swap.h"
 
-int copy_arr(int *num, int *num1, int size)
+int	copy_arr(int *num, int *num1, int size)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < size)
-    {
-        num1[i] = num[i];
-        i++;
-    }
-    return (*num1);
+	i = 0;
+	while (i < size)
+	{
+		num1[i] = num[i];
+		i++;
+	}
+	return (*num1);
 }
 
 int	bubl_sort_arr(int *num, int size)
@@ -53,9 +53,9 @@ int	bubl_sort_arr(int *num, int size)
 	return (*num);
 }
 
-int get_index_for_chr(int *num, int nbr)
+int	get_index_for_chr(int *num, int nbr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (num[i] != nbr)
@@ -63,7 +63,7 @@ int get_index_for_chr(int *num, int nbr)
 	return (i);
 }
 
-int min_range(t_stack **a)
+int	min_range(t_stack **a)
 {
 	int		i;
 	t_stack	*t;

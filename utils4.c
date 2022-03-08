@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int search_max(t_stack *stack)
+int	search_max(t_stack *stack)
 {
 	int	max;
 
@@ -28,9 +28,9 @@ int search_max(t_stack *stack)
 	return (max);
 }
 
-int search_min(t_stack *stack)
+int	search_min(t_stack *stack)
 {
-	int min;
+	int	min;
 
 	if (!stack)
 		return (0);
@@ -44,7 +44,7 @@ int search_min(t_stack *stack)
 	return (min);
 }
 
-static int	ft_isspace(int c)
+int	ft_isspace(int c)
 {
 	if (c == ' ' || c == '\t' || c == '\n' || c == '\v'
 		|| c == '\f' || c == '\r')

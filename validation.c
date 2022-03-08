@@ -18,22 +18,30 @@ void	error(void)
 	exit(EXIT_FAILURE);
 }
 
-int 	arg_check(char *s)
+int	arg_check(char *s)
 {
 	int				i;
 	long long int	t;
+	int				flag;
 
 	if (!*s)
 		return (1);
+	flag = 0;
 	i = 0;
 	while (s[i])
 	{
-		if (!ft_isdigit(s[i]) && s[i] != '-')
+		if (!ft_isdigit(s[i]) && s[i] != '-' && !ft_isspace(s[i]))
 			return (1);
+		if (flag && s[i] == '-')
+			return (1);
+		if (!flag && s[i] == '-')
+			flag = 1;
 		i++;
 	}
+	if (flag && ft_strlen(s) == 1)
+		return (1);
 	t = atoi_long_long(s);
-	if (t == 0 || t < INT_MIN || t > INT_MAX)
+	if (t < INT_MIN || t > INT_MAX || ft_atoi(s + i))
 		return (1);
 	return (0);
 }
@@ -41,10 +49,10 @@ int 	arg_check(char *s)
 void	check_dublicate(int argc, char **argv)
 {
 	int	i;
-	int j;
+	int	j;
 
-	i = 0;
-	while (i < argc + 1)
+	i = 1;
+	while (i < argc - 1)
 	{
 		j = i + 1;
 		while (j < argc)
@@ -72,16 +80,17 @@ void	validation(int argc, char **argv, t_stack **stack_a)
 	if (argc < 2)
 		error();
 	else if (argc == 2)
-	{
-		return ;
-	}
+		check_split_arg(argv[1], stack_a);
 	else
 	{
 		i = 1;
 		while (i < argc)
 		{
-			if (arg_check(argv[i++]))
+			if (arg_check(argv[i]))
 				error();
+			if (check_count_nbr(argv[i]))
+				error();
+			i++;
 		}
 		check_dublicate(argc, argv);
 		i = 1;

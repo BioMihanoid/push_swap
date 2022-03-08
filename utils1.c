@@ -36,7 +36,7 @@ t_stack	*stack_last(t_stack *stack)
 	return (stack);
 }
 
-int a_is_sorted(t_stack *stack)
+int	a_is_sorted(t_stack *stack)
 {
 	t_stack	*t;
 
@@ -52,15 +52,16 @@ int a_is_sorted(t_stack *stack)
 	return (1);
 }
 
-int ft_is_space(char c)
+int	ft_is_space(char c)
 {
-	return (c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == '\f' || c == '\v');
+	return (c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == '\f'
+		|| c == '\v');
 }
 
 long long int	atoi_long_long(char *s)
 {
-	int 			i;
-	int 			sign;
+	int				i;
+	int				sign;
 	long long int	res;
 
 	i = 0;

@@ -55,10 +55,10 @@ void	return_value_in_stack_a(t_stack **a, t_stack **b)
 	while ((*b) != NULL)
 	{
 		if ((*b)->index != max_range(b) && !eq_src(b, max_range(b),
-												   stack_size(*b)))
+				stack_size(*b)))
 			rb(b, 1);
 		else if ((*b)->index != max_range(b) && eq_src(b, max_range(b),
-													   stack_size(*b)))
+				stack_size(*b)))
 			rrb(b, 1);
 		else if ((*b)->index == max_range(b))
 			pa(a, b);
@@ -74,11 +74,15 @@ void	sort_100_nbr(t_stack **a, t_stack **b)
 	{
 		if (l > 1 && (*a)->index <= l)
 		{
-			pb(a, b), l++;
+			pb(a, b);
+			l++;
 			rb(b, 1);
 		}
 		else if ((*a)->index <= l + 15)
-			pb(a, b), l++;
+		{
+			pb(a, b);
+			l++;
+		}
 		else if ((*a)->index >= l)
 			ra(a, 1);
 	}
@@ -94,11 +98,15 @@ void	sort_500_nbr(t_stack **a, t_stack **b)
 	{
 		if (l > 1 && (*a)->index <= l)
 		{
-			pb(a, b), l++;
+			pb(a, b);
+			l++;
 			rb(b, 1);
 		}
 		else if ((*a)->index <= l + 30)
-			pb(a, b), l++;
+		{
+			pb(a, b);
+			l++;
+		}
 		else if ((*a)->index >= l)
 			ra(a, 1);
 	}

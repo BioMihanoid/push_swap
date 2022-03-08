@@ -14,7 +14,7 @@
 
 void	sa(t_stack **stack_a, int info)
 {
-	int t;
+	int	t;
 
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
@@ -22,12 +22,12 @@ void	sa(t_stack **stack_a, int info)
 	(*stack_a)->nbr = (*stack_a)->next->nbr;
 	(*stack_a)->next->nbr = t;
 	if (info)
-		printf ("sa\n");
+		write (1, "sa\n", 3);
 }
 
 void	sb(t_stack **stack_b, int info)
 {
-	int t;
+	int	t;
 
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
@@ -35,11 +35,12 @@ void	sb(t_stack **stack_b, int info)
 	(*stack_b)->nbr = (*stack_b)->next->nbr;
 	(*stack_b)->next->nbr = t;
 	if (info)
-		printf ("sb\n");
+		write (1, "sb\n", 3);
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	sa(stack_a, 0);
 	sb(stack_b, 0);
+	write (1, "ss\n", 3);
 }
