@@ -42,6 +42,8 @@ int	main(int argc, char **argv)
 	t_stack	*b;
 	int		size;
 
+	a = NULL;
+	b = NULL;
 	validation(argc, argv, &a);
 	if (a_is_sorted(a))
 		exit(EXIT_SUCCESS);

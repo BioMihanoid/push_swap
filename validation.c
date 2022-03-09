@@ -78,7 +78,7 @@ void	validation(int argc, char **argv, t_stack **stack_a)
 	int	i;
 
 	if (argc < 2)
-		error();
+		exit(0);
 	else if (argc == 2)
 		check_split_arg(argv[1], stack_a);
 	else
